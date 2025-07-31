@@ -1,0 +1,215 @@
+body {
+  background: #456882;       /* un blanco con un toque azul grisáceo muy sutil */
+  color: #222;               /* negro oscuro para texto */
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* importante para que el navbar no tape ningun contenido */
+html {
+  scroll-padding-top: 80px; /* o el alto de tu navbar */
+}
+
+.mi-navbar {
+  background: #1b3c53;
+  color: #222;
+  padding: 0px 20px; /* menos espacio arriba y abajo */
+  position: fixed;
+  width: 100vw;
+
+  display: flex;              /* Usamos flexbox */
+  align-items: center;        /* Centrar verticalmente */
+  justify-content: space-between; /* Separar logo a la izquierda y hamburguesa a la derecha */
+}
+
+.container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.navbar-brand {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-brand:hover {
+  text-decoration: none;
+}
+
+.inicio-texto {
+  font-size: 2rem;
+  margin-left: 10px;
+  font-weight: bold;
+  color: #D2C1B6 !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+
+
+.hamburger {
+  font-size: 20px;
+  background-color: #000000;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+/* Menú oculto inicialmente */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: none;
+  position: absolute;
+  top: 55px; /* debajo del navbar */
+  right: 20px;
+  background-color: #000000;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.menu li:last-child {
+  border-bottom: none;
+}
+
+.menu a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+}
+
+.menu a:hover {
+  background-color: #ffffff;
+  text-decoration: none;
+}
+
+header {
+  text-align: center;
+  padding: 5rem 2rem 2rem 2rem; /* arriba 0, derecha 2rem, abajo 2rem, izquierda 2rem */
+  background: #1b3c53;       /* azul oscuro para profesionalismo */
+}
+header h1, header p {
+  margin: 1rem 0;
+  color: #D2C1B6;            /* blanco muy claro para contraste */
+}
+.header-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-bottom: 4px solid #144d78; /* azul un poco más claro que el header */
+  border-radius: 0 0 8px 8px;
+  margin-bottom: 1rem;
+}
+section.bloque {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  background: #ffffff;       /* blanco puro para bloques */
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(13, 59, 102, 0.15); /* sombra azul muy sutil */
+  margin-bottom: 2rem;
+}
+section.bloque img.bloque-img {
+  flex: 1 1 300px;
+  max-width: 300px;
+  border-radius: 8px;
+  margin-right: 2rem;
+  border: 2px solid #0d3b66; /* borde azul oscuro para imagen */
+}
+section.bloque div {
+  flex: 2 1 500px;
+  color: #222;
+}
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #d9e2ec;       /* gris azulado claro */
+  color: #0d3b66;            /* azul oscuro */
+  font-size: 0.9rem;
+  border-top: 1px solid #a9bcd0; /* azul grisáceo */
+}
+a {
+  color: #0d3b66;            /* azul oscuro */
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #144d78;            /* azul un poco más claro al pasar el mouse */
+}
+@media (max-width: 768px) {
+  section.bloque {
+    flex-direction: column;
+  }
+  section.bloque img.bloque-img {
+    margin: 0 0 1rem 0;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #0d3b66;            /* etiquetas en azul oscuro */
+}
+
+form input,
+form textarea {
+  margin-top: 0.3rem;
+  padding: 0.5rem;
+  border: 1px solid #a9bcd0; /* borde azul grisáceo */
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #222;
+  background-color: #f5f8fa; /* fondo muy claro */
+}
+
+form button {
+  margin-top: 1rem;
+  padding: 0.7rem;
+  background-color: #0d3b66; /* botón azul oscuro */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #144d78; /* azul un poco más claro al hover */
+}
+#contacto i {
+  color: #0d3b66;
+  margin-right: 0.5rem;
+}
+#contacto a {
+  color: #0d3b66;
+}
+#contacto a:hover {
+  text-decoration: underline;
+  color: #144d78;
+}
+header .logo {
+  max-width: 160px;
+  height: auto;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
