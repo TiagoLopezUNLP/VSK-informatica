@@ -26,4 +26,22 @@ if (contactForm) {
   }
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
+
+function mostrarSeccionesScroll() {
+    const bloques = document.querySelectorAll('.bloque');
+    const triggerPoint = window.innerHeight * 0.85;
+
+    bloques.forEach(bloque => {
+      const top = bloque.getBoundingClientRect().top;
+      if (top < triggerPoint) {
+        bloque.classList.add('visible');
+      } else {
+        bloque.classList.remove('visible'); // opcional: se vuelve a ocultar
+      }
+    });
+  }
+
+  window.addEventListener('scroll', mostrarSeccionesScroll);
+  window.addEventListener('load', mostrarSeccionesScroll);
+  
   
