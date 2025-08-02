@@ -7,28 +7,29 @@
   <title>Vasek | Software de gestión a medida</title>
   <link rel="stylesheet" href="estilos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Bootstrap 5 CSS desde CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav class="mi-navbar">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="img/header0.png" alt="Vasek" style="height: 75px;">
-      <span class="inicio-texto">Inicio</span>
-    </a>
+<nav class="navbar" id="navbar">
+  <div class="logo">
+      <img src="img/header0.png" alt="Logo de la empresa">
+  </div>
 
-    <!-- Botón hamburguesa que controla el dropdown -->
-    <button class="hamburger" id="hamburgerBtn">☰</button>
+  <div class="nav-center">
+    <div class="nav-links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">FAQs</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
 
-    <!-- Menú dropdown oculto por defecto -->
-    <ul class="menu" id="menu">
-      <a href="#quienes">Quiénes somos</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#porque">Porque</a>
-      <a href="#clientes">Clientes</a>
-      <a href="#contacto">Contacto</a>
-    </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 </nav>
 
@@ -36,8 +37,14 @@
   <img src="img/header.jpg" alt="Tecnología y desarrollo de software" class="header-image" />
   <div class="header-contenido">
     <div class="header-texto">
-      <h1>Soluciones a medida para Pymes, Comercios y Profesionales</h1>
-      <p>Desde La Plata, creando herramientas digitales simples, efectivas y accesibles.</p>
+      <h1>
+        Empresa de desarrollo de software<br>
+        para Pymes, comercios y profesionales
+      </h1>
+      <p>
+        Desde La Plata, desarrollamos herramientas digitales efectivas y escalables,<br>
+        hechas especialmente para tu negocio.
+      </p>
     </div>
   </div>
 </header>

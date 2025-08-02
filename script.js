@@ -14,26 +14,16 @@ if (contactForm) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const hamburgerBtn = document.getElementById("hamburgerBtn");
-  const menu = document.getElementById("menu");
+  let lastScrollTop = 0;
+  const navbar = document.getElementById("navbar");
 
-  hamburgerBtn.addEventListener("click", function () {
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-  });
-
-  // Cierra el menú si se hace clic fuera
-  document.addEventListener("click", function (e) {
-    if (!hamburgerBtn.contains(e.target) && !menu.contains(e.target)) {
-      menu.style.display = "none";
-    }
-  });
-
-  // Cierra el menú al hacer clic en una opción del menú
-  const menuLinks = menu.querySelectorAll("a");
-  menuLinks.forEach(link => {
-    link.addEventListener("click", function () {
-      menu.style.display = "none";
-    });
-  });
+  window.addEventListener("scroll", function () {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  if (scrollTop > lastScrollTop && scrollTop > 100) {
+    navbar.classList.add("oculto");
+  } else {
+    navbar.classList.remove("oculto");
+  }
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
+  

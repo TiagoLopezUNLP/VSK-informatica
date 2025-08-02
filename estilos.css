@@ -1,5 +1,5 @@
 body {
-  background: #456882;       /* un blanco con un toque azul grisáceo muy sutil */
+  background-color: #0c1230; /* o el color que uses */      /* un blanco con un toque azul grisáceo muy sutil */
   color: #222;               /* negro oscuro para texto */
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -9,102 +9,135 @@ body {
 /* importante para que el navbar no tape ningun contenido */
 html {
   scroll-padding-top: 80px; /* o el alto de tu navbar */
+  scroll-behavior: smooth;
 }
 
-.mi-navbar {
-  background: #1b3c53;
-  color: #222;
-  padding: 0px 20px; /* menos espacio arriba y abajo */
-  position: fixed;
-  width: 100vw;
 
-  display: flex;              /* Usamos flexbox */
-  align-items: center;        /* Centrar verticalmente */
-  justify-content: space-between; /* Separar logo a la izquierda y hamburguesa a la derecha */
-}
-
-.container-fluid {
+.navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  padding: 10px 20px;
+  background-color: #0c1230; /* o el color que uses */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.6s ease-in-out, background-color 0.6s ease-in-out;
 }
 
-.navbar-brand {
+.navbar.oculto {
+  top: -80px;
+  background-color: transparent;
+}
+
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-main {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo img {
+  height: 50px; /* o el tamaño que prefieras */
+  width: auto;
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 4rem;
+}
+
+.nav-links a {
+  color: #ddd;
   text-decoration: none;
-  color: white;
+  font-size: 1.1rem;
+  transition: color 0.3s;
 }
 
-.navbar-brand:hover {
+.nav-links a:hover {
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
-.inicio-texto {
-  font-size: 2rem;
-  margin-left: 10px;
-  font-weight: bold;
-  color: #D2C1B6 !important;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-
-
+/* Hamburger (hidden by default) */
 .hamburger {
-  font-size: 20px;
-  background-color: #000000;
-  color: white;
-  border-radius: 5px;
-  padding: 10px 14px;
+  display: none;
+  flex-direction: column;
   cursor: pointer;
 }
 
-/* Menú oculto inicialmente */
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0;
-  display: none;
-  position: absolute;
-  top: 55px; /* debajo del navbar */
-  right: 20px;
-  background-color: #000000;
-  border-radius: 5px;
-  overflow: hidden;
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin: 4px 0;
+  transition: 0.3s;
 }
 
-.menu li:last-child {
-  border-bottom: none;
-}
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: #121117;
+    border-radius: 8px;
+    padding: 1rem;
+    z-index: 100;
+  }
 
-.menu a {
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  display: block;
-  padding: 10px 20px;
-}
+  .nav-links.active {
+    display: flex;
+  }
 
-.menu a:hover {
-  background-color: #ffffff;
-  text-decoration: none;
+  .hamburger {
+    display: flex;
+  }
 }
 
 header {
+  margin-top: 74px; /* ajusta este valor según lo que necesites */
+}
+
+.header-contenido {
+  padding: 20px 20px;
+  background-color: #0c1230; /* o el color que uses */
   text-align: center;
-  padding: 5rem 2rem 2rem 2rem; /* arriba 0, derecha 2rem, abajo 2rem, izquierda 2rem */
-  background: #1b3c53;       /* azul oscuro para profesionalismo */
+  color: #f0f0f0;
 }
-header h1, header p {
-  margin: 1rem 0;
-  color: #D2C1B6;            /* blanco muy claro para contraste */
+
+.header-texto h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  color: #e6e6e6;
 }
+
+.header-texto p {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #cccccc;
+}
+
 .header-image {
   width: 100%;
-  max-height: 300px;
+  max-height: 350px;
   object-fit: cover;
-  border-bottom: 4px solid #144d78; /* azul un poco más claro que el header */
   border-radius: 0 0 8px 8px;
-  margin-bottom: 1rem;
+  margin-bottom: -1rem;
 }
 section.bloque {
   display: flex;
