@@ -12,12 +12,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* navbar de navegacion principal */
 
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
+  max-width: 100%;
+  box-sizing: border-box;
   background-color: #0c1230; /* o el color que uses */
   position: fixed;
   top: 0;
@@ -68,15 +71,33 @@ html {
 
 /* Hamburger (hidden by default) */
 .hamburger {
-  display: none;
+  display: none; /* visible solo en mobile */
   flex-direction: column;
   cursor: pointer;
+  margin-left: auto; /* empuja el botón a la derecha */
+  z-index: 1001; /* para que quede por encima del menú desplegable */
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(65deg) translate(7px, 15.5px);
+  transform-origin: center;
+}
+.hamburger.active span:nth-child(2) {
+  transform: rotate(90deg) translate(11.4px, -4px);
+  width: 6px; /* o el valor que quieras */
+  /* o para reducir altura */
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-65deg) translate(8.2px, -4.2px);
+  transform-origin: center;
 }
 
 .hamburger span {
   height: 3px;
   width: 25px;
-  background: white;
+  background: rgb(255, 255, 255);
   margin: 4px 0;
   transition: 0.3s;
 }
@@ -84,23 +105,55 @@ html {
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
+    display: flex;
     flex-direction: column;
     position: absolute;
     top: 70px;
     right: 20px;
     background-color: #121117;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 1rem;
-    z-index: 100;
+    width: 150px;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    gap: 20px; /* sin espacio entre ítems */
   }
 
   .nav-links.active {
-    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 0.1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
   }
 
   .hamburger {
     display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    height: 3px;
+    width: 25px;
+    background: white;
+    margin: 4px 0;
+    transition: all 0.3s ease;
   }
 }
 
@@ -115,48 +168,58 @@ header {
   color: #f0f0f0;
 }
 
-    .button-container {
-      display: flex;
-      gap: 20px; /* Espacio entre los botones */
-      justify-content: center;
-      margin-bottom: 20px;
-    }
+/* botones de la pantalla principal para contactarnos y ver mas */
 
-    .contact-us {
-      padding: 12px 24px;
-      border: 1px solid #555;
-      background-color: transparent;
-      color: #eaeaea;
-      border-radius: 24px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: all 0.2s ease;
-    }
+.button-container {
+  display: flex;
+  gap: 20px; /* espacio entre los botones */
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: nowrap; /* evita que los botones se apilen */
+}
 
-    .contact-us:hover {
-      border-color: #00ffff;
-      color: #00ffff;
-    }
+.contact-us, .learn-more {
+  font-size: 16px;
+  cursor: pointer;
+  padding: 12px 24px;
+  min-width: 150px; /* para que no se hagan muy pequeños */
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
 
-    .learn-more {
-      background: none;
-      border: none;
-      color: #aaa;
-      font-size: 16px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
+.contact-us {
+  border: 1px solid #555;
+  background-color: transparent;
+  color: #eaeaea;
+}
 
-    .learn-more:hover {
-      color: #fff;
-    }
+.contact-us:hover {
+  border-color: #00ffff;
+  color: #00ffff;
+}
 
-    .arrow {
-      font-size: 16px;
-    }
+.learn-more {
+  background: none;
+  border: 1px solid transparent; /* para que tenga tamaño igual al otro */
+  color: #aaa;
+}
 
+.learn-more:hover {
+  color: #fff;
+  border-color: #00ffff; /* agrega borde al hacer hover para que parezca más interactivo */
+}
+
+.arrow {
+  font-size: 16px;
+  margin-left: 5px; /* un poco de separación del texto */
+}
+
+
+
+/* Primera seccion de la pagina imagen + texto + botones */
 
 .header-texto h1 {
   font-family: 'Inter', sans-serif;
@@ -182,6 +245,18 @@ header {
   border-radius: 0 0 8px 8px;
   margin-bottom: -1rem;
 }
+
+@media (max-width: 768px) {
+  .header-image {
+    max-width: 90%;
+    max-height: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
+/* Secciones de la pagina como sobre nosotros o contacto */
 
 .bloque {
   opacity: 0;
@@ -222,22 +297,6 @@ section.bloque div {
   flex: 2 1 500px;
   color: #222;
 }
-footer {
-  text-align: center;
-  padding: 1.5rem;
-  background: #d9e2ec;       /* gris azulado claro */
-  color: #0d3b66;            /* azul oscuro */
-  font-size: 0.9rem;
-  border-top: 1px solid #a9bcd0; /* azul grisáceo */
-}
-a {
-  color: #0d3b66;            /* azul oscuro */
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-  color: #144d78;            /* azul un poco más claro al pasar el mouse */
-}
 @media (max-width: 768px) {
   section.bloque {
     flex-direction: column;
@@ -272,6 +331,28 @@ a:hover {
     padding: 14px;
   }
 }
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  p, ul, li {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .header-texto h1 {
+    font-size: 28px;
+  }
+
+  .header-texto p {
+    font-size: 16px;
+  }
+}
+
+/* seccion de contacto */
 
 form {
   margin-top: 1rem;
@@ -329,4 +410,23 @@ header .logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* footer de la pagina */
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #d9e2ec;       /* gris azulado claro */
+  color: #0d3b66;            /* azul oscuro */
+  font-size: 0.9rem;
+  border-top: 1px solid #a9bcd0; /* azul grisáceo */
+}
+a {
+  color: #0d3b66;            /* azul oscuro */
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #144d78;            /* azul un poco más claro al pasar el mouse */
 }
