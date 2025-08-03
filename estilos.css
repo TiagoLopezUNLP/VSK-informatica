@@ -287,6 +287,7 @@ section.bloque {
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
+
 section.bloque img.bloque-img {
   flex: 1 1 300px;
   max-width: 400px;
@@ -294,6 +295,11 @@ section.bloque img.bloque-img {
   margin-right: 2em;
   border: 2px solid #0d3b66; /* borde azul oscuro para imagen */
 }
+
+section#quienes img.bloque-img {
+  margin-right: 2em; /* o el valor anterior */
+}
+
 section.bloque div {
   flex: 2 1 500px;
   color: #222;
@@ -326,13 +332,17 @@ section.bloque li {
   font-size: 3rem;
 }
 
-section#quienes strong {
-  color: #144d78;
+#servicios li {
+  color: #ffffff; /* o el color que prefieras para los ítems */
   font-size: 1.25rem;
 }
 
-#servicios li {
-  color: #ffffff; /* o el color que prefieras para los ítems */
+#servicios strong{
+  color: #144d78;
+  font-size: 1.31rem;
+}
+section#quienes strong {
+  color: #144d78;
   font-size: 1.25rem;
 }
 
