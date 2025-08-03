@@ -322,19 +322,15 @@ section.bloque li {
   font-size: 1.45rem;
 }
 
-#quienes strong{
-  color: #144d78;
-  font-size: 1.25rem;
+
+section#servicios h2 {
+  color: #ffffff !important;
+  font-size: 3rem !important;
 }
 
-#servicios h2 {
-  color: #ffffff;
-  font-size: 3rem;
-}
-
-#servicios li {
-  color: #ffffff; /* o el color que prefieras para los ítems */
-  font-size: 1.25rem;
+section#servicios li {
+  color: #ffffff !important; /* o el color que prefieras para los ítems */
+  font-size: 1.25rem !important;
 }
 
 section#servicios strong{
