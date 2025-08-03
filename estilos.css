@@ -338,8 +338,8 @@ section.bloque li {
 }
 
 #servicios strong{
-  color: #144d78;
-  font-size: 1.31rem;
+  color: #144d78 !important;
+  font-size: 1.31rem !important;
 }
 
 section#quienes strong {
