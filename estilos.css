@@ -337,10 +337,11 @@ section.bloque li {
   font-size: 1.25rem;
 }
 
-#servicios strong{
+section#servicios strong{
   color: #144d78;
   font-size: 1.31rem;
 }
+
 section#quienes strong {
   color: #144d78;
   font-size: 1.25rem;
