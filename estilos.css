@@ -61,11 +61,12 @@ html {
   color: #ddd;
   text-decoration: none;
   font-size: 1.1rem;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s; /* Añadimos transform a la transición */
 }
 
 .nav-links a:hover {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  transform: scale(1.1); /* Aumenta un 10% el tamaño */
   text-decoration: none;
 }
 
@@ -309,8 +310,30 @@ section.bloque p{
   font-size: 1.2rem;
 }
 
-section.bloque strong, li{
+section.bloque strong,
+section.bloque li {
   color: #00ffff;
+  font-size: 1.45rem;
+}
+
+#quienes strong{
+  color: #144d78;
+  font-size: 1.25rem;
+}
+
+#servicios h2 {
+  color: #ffffff;
+  font-size: 3rem;
+}
+
+#servicios strong {
+  color: #144d78;
+  font-size: 1.25rem;
+}
+
+#servicios li {
+  color: #ffffff; /* o el color que prefieras para los ítems */
+  font-size: 1.25rem;
 }
 
 @media (max-width: 768px) {
