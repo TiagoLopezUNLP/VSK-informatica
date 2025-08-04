@@ -306,19 +306,19 @@ section.bloque div {
 }
 
 section.bloque h2{
-  color: #00ffff;
+  color: #ffffff;
   font-size: 3rem;
   margin-top: auto;
 }
 
 section.bloque p{
-  color: #00ffff;
+  color: #ffffff;
   font-size: 1.2rem;
 }
 
 section.bloque strong,
 section.bloque li {
-  color: #00ffff;
+  color: #ffffff;
   font-size: 1.45rem;
 }
 
