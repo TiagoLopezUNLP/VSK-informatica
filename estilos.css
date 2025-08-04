@@ -241,6 +241,8 @@ header {
 
 .header-image {
   width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
   max-height: 350px;
   object-fit: cover;
   border-radius: 0 0 8px 8px;

@@ -45,16 +45,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Ocultar nav al hacer scroll hacia abajo + cerrar menú
   let lastScrollTop = 0;
+  let navHidden = false;
+  let mouseMoveTimeout;
+
+  // Detectar scroll
   window.addEventListener("scroll", function () {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    
+
     // Ocultar nav al bajar
     if (scrollTop > lastScrollTop && scrollTop > 100) {
       navbar.classList.add("oculto");
+      navHidden = true;
     } else {
       navbar.classList.remove("oculto");
+      navHidden = false;
     }
 
     // Cerrar menú si está abierto al hacer scroll hacia abajo
@@ -65,22 +70,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   });
-});
 
-// animaciones de aparición y desaparición para las secciones
-function mostrarSeccionesScroll() {
-  const bloques = document.querySelectorAll(".bloque");
-  const triggerPoint = window.innerHeight * 0.95;
+  // Mostrar nav al mover el mouse en cualquier parte de la pantalla
+  document.addEventListener("mousemove", function () {
+    if (navHidden) {
+      navbar.classList.remove("oculto");
+      navHidden = false;
 
-  bloques.forEach((bloque) => {
-    const top = bloque.getBoundingClientRect().top;
-    if (top < triggerPoint) {
-      bloque.classList.add("visible");
-    } else {
-      bloque.classList.remove("visible"); // opcional
+      // Volver a ocultarlo después de 3 segundos sin movimiento
+      clearTimeout(mouseMoveTimeout);
+      mouseMoveTimeout = setTimeout(() => {
+        if (window.scrollY > 100) {
+          navbar.classList.add("oculto");
+          navHidden = true;
+        }
+      }, 3000);
     }
   });
-}
 
-window.addEventListener("scroll", mostrarSeccionesScroll);
-window.addEventListener("load", mostrarSeccionesScroll);
+  // Animaciones de aparición y desaparición para las secciones
+  function mostrarSeccionesScroll() {
+    const bloques = document.querySelectorAll(".bloque");
+    const triggerPoint = window.innerHeight * 0.95;
+
+    bloques.forEach((bloque) => {
+      const top = bloque.getBoundingClientRect().top;
+      if (top < triggerPoint) {
+        bloque.classList.add("visible");
+      } else {
+        bloque.classList.remove("visible"); // opcional
+      }
+    });
+  }
+
+  window.addEventListener("scroll", mostrarSeccionesScroll);
+  window.addEventListener("load", mostrarSeccionesScroll);
+});
