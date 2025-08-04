@@ -6,6 +6,7 @@ body {
   padding: 0;
 }
 
+
 /* importante para que el navbar no tape ningun contenido */
 html {
   scroll-padding-top: 80px; /* o el alto de tu navbar */
